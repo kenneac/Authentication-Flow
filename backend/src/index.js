@@ -18,6 +18,9 @@ app.use(express.json()); // allows us to parse incoming requests:req.body
 app.use(cookieParser()); // allows us to parse incoming cookies
 
 // ROUTES
+app.use("/api/health", (req, res) => {
+	res.status(200).json({ message: "API is healthy" });
+});
 app.use("/api/auth", authRoutes);
 
 // SERVE FRONTEND IN PRODUCTION
